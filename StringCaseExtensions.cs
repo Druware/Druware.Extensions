@@ -1,5 +1,4 @@
-﻿using System;
-namespace Druware.Extensions
+﻿namespace Druware.Extensions
 {
     /// <summary>
     /// A collection of extensions for handling adjusting the case style of a

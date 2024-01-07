@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 namespace Druware.Extensions
 {
     public static class ByteArrayStringExtension

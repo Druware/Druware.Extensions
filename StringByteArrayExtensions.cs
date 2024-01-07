@@ -1,5 +1,4 @@
-﻿using System;
-namespace Druware.Extensions
+﻿namespace Druware.Extensions
 {
     public static class StringByteArrayExtensions
     {
