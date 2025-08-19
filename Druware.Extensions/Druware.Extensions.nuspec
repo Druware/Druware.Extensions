@@ -1,0 +1,27 @@
+<package >
+    <metadata>
+        <id>$id$</id>
+        <version>1.1.4</version>
+        <title>Druware.Extensions</title>
+        <authors>dru@druware.com</authors>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <license type="file">LICENSE.txt</license>
+        <readme>README.md</readme>
+        <!-- <icon>icon.png</icon> -->
+        <projectUrl>https://github.com/Druware/Druware.Extensions</projectUrl>
+        <description>
+            A simple set of extensions used by the Druware.Server Package(s).
+        </description>
+        <releaseNotes>
+            
+        </releaseNotes>
+        <copyright>Copyright 2019-2025 by:
+            Andy 'Dru' Satori @ Druware Software Designs.
+            All Rights Reserved</copyright>
+        <tags>.net6 .net8 extensions</tags>
+    </metadata>
+    <files>
+        <file src="..\LICENSE.txt" target="" />
+        <file src="..\README.md" target="" />
+    </files>
+</package>

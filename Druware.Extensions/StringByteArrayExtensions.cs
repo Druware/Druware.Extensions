@@ -10,5 +10,7 @@
             return encoding.GetBytes(str);
         }
     }
+    
+    
 }
 
