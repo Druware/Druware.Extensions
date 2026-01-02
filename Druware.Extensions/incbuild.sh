@@ -25,7 +25,6 @@ else
   REVISION=$((REVISION+1))
 fi 
 VERSION=$MAJOR.$MINOR.$REVISION
-
 sed -r -i '' -e "s/^(.*)<Version>(.*)<\/Version>.*$/\1<Version>$VERSION<\/Version>/g" $NUSPEC 
 
 cd $PWD
