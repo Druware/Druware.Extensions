@@ -25,15 +25,16 @@ jobs:
     - name: Increment Version
       shell: bash
       run: |
-        FN=/home/runner/work/Druware.Extensions/Druware.Extensions/Druware.Extensions/Druware.Extensions.csproj
+        FN=/home/runner/work/Druware.Extensions/Druware.Extensions/Druware.Extensions.csproj
         VERSION=`grep -o -P '<Version>.*</Version>' $FN | sed -n -r "s/^.*<Version>(.*)<\/Version>.*$/\1/p"` 
         echo "Current Version: $VERSION"
         MAJOR=`echo $VERSION | awk '{split($0,a,"."); print a[1]}'`
         MINOR=`echo $VERSION | awk '{split($0,a,"."); print a[2]}'`
         REVISION=`echo $VERSION | awk '{split($0,a,"."); print a[3]}'`
+        REVISION=$((REVISION+1))
         VERSION=$MAJOR.$MINOR.$REVISION
         echo "New Version: $VERSION"
-        sed -r -i '' -e "s/^(.*)<Version>(.*)<\/Version>.*$/\1<Version>$VERSION<\/Version>/g" $FN
+        sed -r -itmp -e "s/^(.*)<Version>(.*)<\/Version>.*$/\1<Version>$VERSION<\/Version>/g" $FN
         echo "Version Updated"
     - name: Build
       run: dotnet build --no-restore --configuration Release 

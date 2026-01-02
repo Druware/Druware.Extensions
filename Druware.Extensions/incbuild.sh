@@ -46,6 +46,7 @@ else
 fi 
 VERSION=$MAJOR.$MINOR.$REVISION
 echo "Version Set"
+echo "Writing to $FN"
 sed -r -i '' -e "s/^(.*)<Version>(.*)<\/Version>.*$/\1<Version>$VERSION<\/Version>/g" $FN 
 echo "Version Written"
 cd $PWD
