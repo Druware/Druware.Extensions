@@ -34,11 +34,11 @@ jobs:
     - name: Push to Nuget
       shell: bash
       run: sh ./Druware.Extensions/nuget-push.sh Druware.Extensions "${{ secrets.NUGET_APIKEY }}"
-    - name: Commit files
-      uses: stefanzweifel/git-auto-commit-action@v5
-      with:
-        commit_message: "version updated"
-        file_pattern: ./Druware.Extensions/Druware.Extensions.csproj
+    #- name: Commit files
+    #  uses: stefanzweifel/git-auto-commit-action@v5
+    #  with:
+    #    commit_message: "version updated"
+    #    file_pattern: ./Druware.Extensions/Druware.Extensions.csproj
 
-# Remaining to do: add a step to create a release tag and push it to the repo
-# Remaining to do: add a step to create a release on GitHub
+    # Remaining to do: add a step to create a release tag and push it to the repo
+    # Remaining to do: add a step to create a release on GitHub

@@ -1,10 +1,6 @@
 #!/bin/sh
 
 # find the .csproj.
-PWD=`pwd`
-echo "Current Dir: $PWD"
-cd $1
-
 NUSPEC=`ls *.csproj`
 VERSION=`grep -o -P '<Version>.*</Version>' $NUSPEC | sed -n -r "s/^.*<Version>(.*)<\/Version>.*$/\1/p"` 
 
@@ -27,7 +23,5 @@ else
 fi 
 VERSION=$MAJOR.$MINOR.$REVISION
 sed -r -i '' -e "s/^(.*)<Version>(.*)<\/Version>.*$/\1<Version>$VERSION<\/Version>/g" $NUSPEC 
-
-cd $PWD
 
 echo 'Build Incremented'
