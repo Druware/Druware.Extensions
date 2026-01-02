@@ -2,6 +2,7 @@
 
 # find the .csproj.
 PWD=`pwd`
+echo "Current Dir: $PWD"
 cd $1
 
 NUSPEC=`ls *.csproj`

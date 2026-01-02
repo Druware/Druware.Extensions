@@ -40,6 +40,5 @@ jobs:
         commit_message: "version updated"
         file_pattern: ./Druware.Extensions/Druware.Extensions.csproj
 
-# Remaining to do: commit the updated version number to the repo
 # Remaining to do: add a step to create a release tag and push it to the repo
 # Remaining to do: add a step to create a release on GitHub
