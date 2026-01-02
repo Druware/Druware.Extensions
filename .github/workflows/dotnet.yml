@@ -22,11 +22,16 @@ jobs:
         dotnet-version: 8.0.x
     - name: Restore dependencies
       run: dotnet restore
+    - name: Increment Version
+      shell: bash
+      run: sh ./Druware.Extensions/incbuild.sh
     - name: Build
       run: |
-        sh ./incbuild.sh
         dotnet build --no-restore --configuration RELEASE 
-        nuget pack -OutputDirectory pub -Properties Configuration=Release
-        sh ./nuget-push.sh ${{ secrets.NUGET_API }}
     - name: Test
       run: dotnet test --no-build --verbosity normal
+    - name: Pack
+      run: dotnet pack --output pub --configuration=Release
+    - name: Push to Nuget
+      shell: bash
+      run: sh ./Druware.Extensions/nuget-push.sh "${{ secrets.NUGET_APIKEY }}"

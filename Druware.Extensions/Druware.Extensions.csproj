@@ -1,12 +1,38 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <TargetFramework>net8.0</TargetFramework>
+    
+    <!-- Package Information -->
+    <PackageId>Druware.Extensions</PackageId>
+    <Version>1.1.11</Version>
+    <Title>Druware.Extensions</Title>
+    <PackageTags>net6 net8 extensions</PackageTags>
+    <Description>
+      A simple set of extensions used by the Druware.Server Package(s).
+    </Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/Druware/Druware.Extensions</RepositoryUrl>
+    <Authors>Dru Satori</Authors>
+    <Company>dru@druware.com</Company>
+    <Copyright>Copyright 2019-2026 by:
+      Andy 'Dru' Satori @ Druware Software Designs.
+      All Rights Reserved</Copyright>
   </PropertyGroup>
+
+  <ItemGroup>
+    <!-- PropertyGroup necessary references -->
+    <None Include="..\LICENSE.txt" Pack="true" PackagePath="LICENSE.txt"/>
+    <None Include="..\README.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="pub\" />
+  </ItemGroup>
 </Project>
