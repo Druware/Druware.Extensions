@@ -24,24 +24,16 @@ jobs:
       run: dotnet restore
     - name: Increment Version
       shell: bash
-      run: |
-        FN=./Druware.Extensions/Druware.Extensions.csproj
-        VERSION=`grep -o -P '<Version>.*</Version>' $FN | sed -n -r "s/^.*<Version>(.*)<\/Version>.*$/\1/p"` 
-        MAJOR=`echo $VERSION | awk '{split($0,a,"."); print a[1]}'`
-        MINOR=`echo $VERSION | awk '{split($0,a,"."); print a[2]}'`
-        REVISION=`echo $VERSION | awk '{split($0,a,"."); print a[3]}'`
-        REVISION=$((REVISION+1))
-        VERSION=$MAJOR.$MINOR.$REVISION
-        sed -r -i '' -e "s/^(.*)<Version>(.*)<\/Version>.*$/\1<Version>$VERSION<\/Version>/g" $FN 
+      run: sh ./Druware.Extensions/incbuild.sh Druware.Extensions
     - name: Build
       run: dotnet build --no-restore --configuration Release 
     # - name: Test
     #   run: dotnet test --no-build --verbosity normal
     - name: Pack
       run: dotnet pack --output pub --configuration Release
-    #- name: Push to Nuget
-    #  shell: bash
-    #  run: sh ./Druware.Extensions/nuget-push.sh Druware.Extensions "${{ secrets.NUGET_APIKEY }}"
+    - name: Push to Nuget
+      shell: bash
+      run: sh ./Druware.Extensions/nuget-push.sh Druware.Extensions "${{ secrets.NUGET_APIKEY }}"
     - name: Commit files
       uses: stefanzweifel/git-auto-commit-action@v5
       with:

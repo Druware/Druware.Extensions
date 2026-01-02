@@ -5,7 +5,7 @@ PWD=`pwd`
 cd $1
 
 NUSPEC=`ls *.csproj`
-VERSION=`grep -o -p '<Version>.*</Version>' $NUSPEC | sed -n -r "s/^.*<Version>(.*)<\/Version>.*$/\1/p"` 
+VERSION=`grep -o -P '<Version>.*</Version>' $NUSPEC | sed -n -r "s/^.*<Version>(.*)<\/Version>.*$/\1/p"` 
 
 # parse the number
 MAJOR=`echo $VERSION | awk '{split($0,a,"."); print a[1]}'`
