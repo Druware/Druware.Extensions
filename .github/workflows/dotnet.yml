@@ -24,7 +24,7 @@ jobs:
       run: dotnet restore
     - name: Increment Version
       shell: bash
-      run: sh ./Druware.Extensions/incbuild.sh
+      run: sh ./Druware.Extensions/incbuild.sh Druware.Extensions
     - name: Build
       run: dotnet build --no-restore --configuration Release 
     # - name: Test
@@ -33,7 +33,7 @@ jobs:
       run: dotnet pack --output pub --configuration Release
     - name: Push to Nuget
       shell: bash
-      run: sh ./Druware.Extensions/nuget-push.sh "${{ secrets.NUGET_APIKEY }}"
+      run: sh ./Druware.Extensions/nuget-push.sh Druware.Extensions "${{ secrets.NUGET_APIKEY }}"
     - name: Commit files
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
