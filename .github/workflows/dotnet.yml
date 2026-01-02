@@ -26,7 +26,7 @@ jobs:
       shell: bash
       run: |
         FN=./Druware.Extensions/Druware.Extensions.csproj
-        VERSION=`grep -o -p '<Version>.*</Version>' $FN | sed -n -r "s/^.*<Version>(.*)<\/Version>.*$/\1/p"` 
+        VERSION=`grep -o -P '<Version>.*</Version>' $FN | sed -n -r "s/^.*<Version>(.*)<\/Version>.*$/\1/p"` 
         MAJOR=`echo $VERSION | awk '{split($0,a,"."); print a[1]}'`
         MINOR=`echo $VERSION | awk '{split($0,a,"."); print a[2]}'`
         REVISION=`echo $VERSION | awk '{split($0,a,"."); print a[3]}'`
