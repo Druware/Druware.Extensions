@@ -23,6 +23,10 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore
+      run: |
+        sh ./incbuild.sh
+        dotnet build --no-restore --configuration RELEASE 
+        nuget pack -OutputDirectory pub -Properties Configuration=Release
+        sh ./nuget-push.sh ${{ secrets.NUGET_API }}
     - name: Test
       run: dotnet test --no-build --verbosity normal
